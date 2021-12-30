@@ -1,0 +1,11 @@
+<resources>
+    <array name="theme_entries">
+        <item>@string/default_theme_entry</item>
+        <item>@string/accessible_theme_entry</item>
+    </array>
+
+    <array name="theme_entry_values">
+        <item>@string/default_theme_value</item>
+        <item>@string/accessible_theme_value</item>
+    </array>
+</resources>

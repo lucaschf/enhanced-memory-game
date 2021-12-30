@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Memory Game</string>
+    <string name="restart">restart</string>
+    <string name="progress">Progress</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="tag_btn_guess">order</string>
+    <string name="tag_btn_color">color</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="you_have_a_good_memory">You have a good memory!</string>
+    <string name="refresh">Refresh</string>
+    <string name="open_in_browser">Open in browser</string>
+
+    <string name="loading">Loading…</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference -->
+    <string name="general_header">General</string>
+    <string name="pref_title_about">About</string>
+    <string name="pref_title_page">Visit our website</string>
+    <string name="pref_title_repo">Check our repository</string>
+    <string name="pref_key_about">key_about</string>
+    <string name="default_theme_entry">Default</string>
+    <string name="accessible_theme_entry">Accessible</string>
+    <string name="default_theme_value" translatable="false">Default</string>
+    <string name="accessible_theme_value" translatable="false">Accessible</string>
+    <string name="key_change_theme" translatable="false">key_change_theme</string>
+
+    <!-- url -->
+    <string name="repo_url" translatable="false">https://github.com/lucaschf/enhancedmemory-game</string>
+    <string name="page_url" translatable="false">https://github.com/lucaschf/enhancedmemory-game</string>
+    <string name="pref_title_change_app_theme">Change theme</string>
+    <string name="pref_key_website">key_website</string>
+    <string name="pref_key_repo">key_repo</string>
+    <string name="title_activity_about">About</string>
+</resources>
