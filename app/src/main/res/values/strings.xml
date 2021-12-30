@@ -31,8 +31,8 @@
     <string name="key_change_theme" translatable="false">key_change_theme</string>
 
     <!-- url -->
-    <string name="repo_url" translatable="false">https://github.com/lucaschf/enhancedmemory-game</string>
-    <string name="page_url" translatable="false">https://github.com/lucaschf/enhancedmemory-game</string>
+    <string name="repo_url" translatable="false">https://github.com/lucaschf/enhanced-memory-game</string>
+    <string name="page_url" translatable="false">https://github.com/lucaschf/enhanced-memory-game</string>
     <string name="pref_title_change_app_theme">Change theme</string>
     <string name="pref_key_website">key_website</string>
     <string name="pref_key_repo">key_repo</string>
