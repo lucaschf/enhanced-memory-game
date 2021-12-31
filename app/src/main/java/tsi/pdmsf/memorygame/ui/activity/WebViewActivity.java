@@ -1,4 +1,4 @@
-package tsi.pdmsf.memorygame;
+package tsi.pdmsf.memorygame.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -25,6 +25,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+
+import tsi.pdmsf.memorygame.R;
 
 public class WebViewActivity extends AppCompatActivity {
 
@@ -78,8 +80,11 @@ public class WebViewActivity extends AppCompatActivity {
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
 
-                actionBar.setTitle(getString(R.string.loading));
-                actionBar.setSubtitle(getHostName(url));
+                if (actionBar != null) {
+                    actionBar.setTitle(getString(R.string.loading));
+                    actionBar.setSubtitle(getHostName(url));
+                }
+
                 progressBar.setVisibility(View.VISIBLE);
             }
 
@@ -87,7 +92,10 @@ public class WebViewActivity extends AppCompatActivity {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
 
-                actionBar.setTitle(view.getTitle());
+                if (actionBar != null) {
+                    actionBar.setTitle(view.getTitle());
+                }
+
                 progressBar.setVisibility(View.GONE);
             }
         };

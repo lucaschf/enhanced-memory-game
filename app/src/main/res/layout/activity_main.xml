@@ -5,18 +5,82 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.activity.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_large"
+        android:layout_marginLeft="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:text="@string/level"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textStyle="bold"
+        android:textSize="@dimen/header_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/gp_game_level"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_large"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBaseline_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <RadioButton
+            android:id="@+id/rd_easy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/r_btn_selector"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/easy"
+            android:textColor="@drawable/r_btn_text_color_selector" />
+
+        <RadioButton
+            android:id="@+id/rd_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/r_btn_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/medium"
+            android:textColor="@drawable/r_btn_text_color_selector" />
+
+        <RadioButton
+            android:id="@+id/rd_hard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/r_btn_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/hard"
+            android:textColor="@drawable/r_btn_text_color_selector" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/btn_restart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/m_lg"
+        android:layout_marginTop="@dimen/spacing_large"
         android:padding="@dimen/pd_lg"
         android:text="@string/restart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/gp_game_level"
+        app:layout_constraintStart_toStartOf="@+id/gp_game_level"
+        app:layout_constraintTop_toBottomOf="@+id/gp_game_level" />
 
     <ProgressBar
         android:id="@+id/pb"
@@ -44,114 +108,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/v_guideline"
-        android:layout_width="wrap_content"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_blocks"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/h_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.54" />
-
-    <Button
-        android:id="@+id/btn_one"
-        android:layout_width="@dimen/btn_size"
-        android:layout_height="@dimen/btn_size"
-        android:layout_marginBottom="16dp"
-        android:text="@string/_1"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toTopOf="@+id/btn_three"
-        app:layout_constraintEnd_toEndOf="@+id/btn_three"
-        tools:visibility="visible" />
-
-    <Button
-        android:id="@+id/btn_two"
-        android:layout_width="@dimen/btn_size"
-        android:layout_height="@dimen/btn_size"
-        android:layout_marginBottom="16dp"
-        android:text="@string/_2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toTopOf="@+id/btn_four"
-        app:layout_constraintStart_toStartOf="@+id/btn_four"
-        tools:visibility="visible" />
-
-    <Button
-        android:id="@+id/btn_three"
-        android:layout_width="@dimen/btn_size"
-        android:layout_height="@dimen/btn_size"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="@string/_3"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toTopOf="@+id/h_guideline"
-        app:layout_constraintEnd_toStartOf="@+id/v_guideline"
-        app:layout_constraintTop_toTopOf="@+id/h_guideline"
-        tools:visibility="visible" />
-
-    <Button
-        android:id="@+id/btn_four"
-        android:layout_width="@dimen/btn_size"
-        android:layout_height="@dimen/btn_size"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="@string/_4"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toTopOf="@+id/h_guideline"
-        app:layout_constraintStart_toStartOf="@+id/v_guideline"
-        app:layout_constraintTop_toTopOf="@+id/h_guideline"
-        tools:visibility="visible" />
-
-    <Button
-        android:id="@+id/btn_five"
-        android:layout_width="@dimen/btn_size"
-        android:layout_height="@dimen/btn_size"
-        android:layout_marginTop="16dp"
-        android:text="@string/_5"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintEnd_toEndOf="@+id/btn_three"
-        app:layout_constraintTop_toBottomOf="@+id/btn_three"
-        tools:visibility="visible" />
-
-    <Button
-        android:id="@+id/btn_six"
-        android:layout_width="@dimen/btn_size"
-        android:layout_height="@dimen/btn_size"
-        android:layout_marginTop="16dp"
-        android:text="@string/_6"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintStart_toStartOf="@+id/btn_four"
-        app:layout_constraintTop_toBottomOf="@+id/btn_four"
-        tools:visibility="visible" />
-
-    <LinearLayout
-        android:id="@+id/congratulations_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
         android:layout_margin="@dimen/m_lg"
-        android:gravity="center|center_vertical"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/h_guideline"
+        android:foregroundGravity="center"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/pb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:visibility="gone">
-
-        <TextView
-            android:id="@+id/tv_congratulations"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/congratulations"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
-
-        <TextView
-            android:id="@+id/tv_congratulations_desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/you_have_a_good_memory" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/btn_restart"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

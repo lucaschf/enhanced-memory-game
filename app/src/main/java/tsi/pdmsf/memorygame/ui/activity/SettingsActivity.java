@@ -1,4 +1,4 @@
-package tsi.pdmsf.memorygame;
+package tsi.pdmsf.memorygame.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
+import tsi.pdmsf.memorygame.R;
+import tsi.pdmsf.memorygame.ThemePreference;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -67,26 +70,32 @@ public class SettingsActivity extends AppCompatActivity {
 
         private void setupAboutPreference() {
             Preference aboutPref = findPreference(getString(R.string.pref_key_about));
-            aboutPref.setOnPreferenceClickListener(preference -> {
-                startActivity(new Intent(getContext(), AboutActivity.class));
-                return false;
-            });
+            if (aboutPref != null) {
+                aboutPref.setOnPreferenceClickListener(preference -> {
+                    startActivity(new Intent(getContext(), AboutActivity.class));
+                    return false;
+                });
+            }
         }
 
         private void setupWebsitePreference() {
             Preference websitePreference = findPreference(getString(R.string.pref_key_website));
-            websitePreference.setOnPreferenceClickListener(preference -> {
-                WebViewActivity.navigate(getActivity(), getString(R.string.page_url));
-                return true;
-            });
+            if (websitePreference != null) {
+                websitePreference.setOnPreferenceClickListener(preference -> {
+                    WebViewActivity.navigate(getActivity(), getString(R.string.page_url));
+                    return true;
+                });
+            }
         }
 
         private void setupRepoPreference() {
             Preference repoPreference = findPreference(getString(R.string.pref_key_repo));
-            repoPreference.setOnPreferenceClickListener(preference -> {
-                WebViewActivity.navigate(getActivity(), getString(R.string.repo_url));
-                return true;
-            });
+            if (repoPreference != null) {
+                repoPreference.setOnPreferenceClickListener(preference -> {
+                    WebViewActivity.navigate(getActivity(), getString(R.string.repo_url));
+                    return true;
+                });
+            }
         }
     }
 }

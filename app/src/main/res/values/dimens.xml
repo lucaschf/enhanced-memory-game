@@ -3,4 +3,13 @@
     <dimen name="m_lg">16dp</dimen>
     <dimen name="pd_lg">16dp</dimen>
     <dimen name="btn_size">128dp</dimen>
+    <dimen name="item_radius">12dp</dimen>
+    <dimen name="category_item_width">100dp</dimen>
+    <dimen name="spacing_x_medium">8dp</dimen>
+    <dimen name="item_margin">8dp</dimen>
+    <dimen name="spacing_large">16dp</dimen>
+    <dimen name="spacing_m_large">24dp</dimen>
+    <dimen name="extra_large">32dp</dimen>
+    <dimen name="spacing_medium">8dp</dimen>
+    <dimen name="header_text">24sp</dimen>
 </resources>
