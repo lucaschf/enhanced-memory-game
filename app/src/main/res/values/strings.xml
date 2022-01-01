@@ -18,24 +18,6 @@
     <string name="loading">Loading…</string>
     <string name="title_activity_settings">Settings</string>
 
-    <!-- Preference -->
-    <string name="general_header">General</string>
-    <string name="pref_title_about">About</string>
-    <string name="pref_title_page">Visit our website</string>
-    <string name="pref_title_repo">Check our repository</string>
-    <string name="pref_key_about">key_about</string>
-    <string name="default_theme_entry">Default</string>
-    <string name="accessible_theme_entry">Accessible</string>
-    <string name="default_theme_value" translatable="false">Default</string>
-    <string name="accessible_theme_value" translatable="false">Accessible</string>
-    <string name="key_change_theme" translatable="false">key_change_theme</string>
-
-    <!-- url -->
-    <string name="repo_url" translatable="false">https://github.com/lucaschf/enhanced-memory-game</string>
-    <string name="page_url" translatable="false">https://github.com/lucaschf/enhanced-memory-game</string>
-    <string name="pref_title_change_app_theme">Change theme</string>
-    <string name="pref_key_website">key_website</string>
-    <string name="pref_key_repo">key_repo</string>
     <string name="title_activity_about">About</string>
     <string name="play_again">Play again</string>
     <string name="trophy">trophy</string>
@@ -43,4 +25,28 @@
     <string name="easy">Easy</string>
     <string name="medium">Medium</string>
     <string name="hard">Hard</string>
+    <string name="blocks_sequence">Blocks sequence</string>
+
+    <!-- Preference -->
+    <string name="general_header">General</string>
+    <string name="pref_title_about">About</string>
+    <string name="pref_title_page">Visit our website</string>
+    <string name="pref_title_repo">Check our repository</string>
+    <string name="pref_key_about">key_about</string>
+    <string name="pref_key_website">key_website</string>
+    <string name="pref_key_repo">key_repo</string>
+
+    <!--color scheme -->
+    <string name="pref_title_change_color_scheme">Change color scheme</string>
+    <string name="default_color_scheme_entry">Default</string>
+    <string name="accessible_color_scheme_entry">Accessible</string>
+
+    <string name="default_color_scheme_value" translatable="false">Default</string>
+    <string name="accessible_color_scheme_value" translatable="false">Accessible</string>
+
+    <string name="key_change_color_scheme" translatable="false">key_change_color_scheme</string>
+
+    <!-- url -->
+    <string name="repo_url" translatable="false">https://github.com/lucaschf/enhanced-memory-game</string>
+    <string name="page_url" translatable="false">https://github.com/lucaschf/enhanced-memory-game</string>
 </resources>

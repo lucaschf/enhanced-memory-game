@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import tsi.pdmsf.memorygame.R;
 import tsi.pdmsf.memorygame.model.Block;
@@ -22,13 +24,17 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockViewHol
 
     private final ArrayList<Block> blocks = new ArrayList<>();
     private OnItemClickListener<Block> listener;
+    private final boolean interactive;
 
 
-    public BlockAdapter(ArrayList<Block> blocks) {
-        this.blocks.addAll(blocks);
+    public BlockAdapter(boolean interactive) {
+        this.interactive = interactive;
     }
 
-    public BlockAdapter() {
+
+    public BlockAdapter(Collection<Block> blocks, boolean interactive) {
+        this.blocks.addAll(blocks);
+        this.interactive = interactive;
     }
 
     public void setListener(OnItemClickListener<Block> listener) {
@@ -49,8 +55,10 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockViewHol
         Block block = blocks.get(position);
         holder.bind(block);
 
-        holder.itemView.setOnClickListener(v -> listener.onItemClicked(block));
-        holder.itemView.setOnLongClickListener(v -> listener.onLongItemClicked(block));
+        if (interactive) {
+            holder.itemView.setOnClickListener(v -> listener.onItemClicked(block));
+            holder.itemView.setOnLongClickListener(v -> listener.onLongItemClicked(block));
+        }
     }
 
     @Override
@@ -65,7 +73,7 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockViewHol
         notifyDataSetChanged();
     }
 
-    public static class BlockViewHolder extends RecyclerView.ViewHolder {
+    public class BlockViewHolder extends RecyclerView.ViewHolder {
         private final CardView cvBlock;
         private final TextView tvBlock;
 
@@ -81,10 +89,15 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockViewHol
         }
 
         public void bind(@NotNull Block block) {
-            cvBlock.setCardBackgroundColor(ContextCompat.getColor(mContext, block.getColorRes()));
-            tvBlock.setText(String.valueOf(block.getValue()));
+            if (interactive) {
+                tvBlock.setText(String.valueOf(block.getValue()));
+            } else {
+                tvBlock.setText(String.valueOf(block.getOrder()));
+            }
 
-            cvBlock.setVisibility(block.isVisible() ? View.VISIBLE : View.INVISIBLE);
+            cvBlock.setCardBackgroundColor(ContextCompat.getColor(mContext, block.getColorRes()));
+            if (interactive)
+                cvBlock.setVisibility(block.isVisible() ? View.VISIBLE : View.INVISIBLE);
         }
     }
 }

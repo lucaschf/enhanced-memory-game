@@ -1,11 +1,40 @@
 <resources>
     <array name="theme_entries">
-        <item>@string/default_theme_entry</item>
-        <item>@string/accessible_theme_entry</item>
+        <item>@string/default_color_scheme_entry</item>
+        <item>@string/accessible_color_scheme_entry</item>
     </array>
 
     <array name="theme_entry_values">
-        <item>@string/default_theme_value</item>
-        <item>@string/accessible_theme_value</item>
+        <item>@string/default_color_scheme_value</item>
+        <item>@string/accessible_color_scheme_value</item>
     </array>
+
+    <integer-array name="default_blocks_color">
+        <item>@color/green_900</item>
+        <item>@color/materialBlue</item>
+        <item>@color/materialRed</item>
+        <item>@color/deep_purple</item>
+        <item>@color/deep_pink</item>
+        <item>@color/deep_pink_1</item>
+        <item>@color/deep_orange</item>
+        <item>@color/deep_orange_1</item>
+        <item>@color/gold</item>
+        <item>@color/green_300</item>
+    </integer-array>
+
+    <integer-array name="accessible_blocks_color">
+        <item>@color/teal_200</item>
+        <item>@color/materialBlue</item>
+        <item>@color/teal_200</item>
+        <item>@color/materialBlue</item>
+        <item>@color/teal_200</item>
+        <item>@color/materialBlue</item>
+        <item>@color/teal_200</item>
+        <item>@color/materialBlue</item>
+        <item>@color/teal_200</item>
+        <item>@color/materialBlue</item>
+        <item>@color/teal_200</item>
+        <item>@color/materialBlue</item>
+    </integer-array>
+
 </resources>

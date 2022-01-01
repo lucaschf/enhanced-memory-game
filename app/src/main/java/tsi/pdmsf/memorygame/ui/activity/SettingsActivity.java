@@ -10,7 +10,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import tsi.pdmsf.memorygame.R;
-import tsi.pdmsf.memorygame.ThemePreference;
+import tsi.pdmsf.memorygame.ColorSchemePreferencePersistence;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -49,19 +49,19 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         private void setupThemePreference() {
-            ThemePreference themePersistence = new ThemePreference(getContext());
-            ListPreference themePreference = findPreference(getString(R.string.key_change_theme));
+            ColorSchemePreferencePersistence colorSchemePersistence = new ColorSchemePreferencePersistence(getContext());
+            ListPreference colorSchemePreference = findPreference(getString(R.string.key_change_color_scheme));
 
             try {
-                themePreference.setDefaultValue(themePersistence.getDefaultTheme());
+                colorSchemePreference.setDefaultValue(colorSchemePersistence.getDefaultColorScheme());
             } catch (Exception ignored) {
             }
 
-            themePreference.setOnPreferenceChangeListener((preference, newValue) -> {
-                String oldValue = themePersistence.getCurrentTheme();
+            colorSchemePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+                String oldValue = colorSchemePersistence.getCurrentColorScheme();
 
                 if (oldValue != newValue) {
-                    themePersistence.applyAndSaveTheme(newValue.toString());
+                    colorSchemePersistence.saveColorScheme(newValue.toString());
                 }
 
                 return oldValue != newValue;

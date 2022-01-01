@@ -32,15 +32,17 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar pb;
     private RecyclerView recyclerView;
 
-    private final GameEnvironment gameEnvironment = new GameEnvironment();
-    private GridLayoutManager layoutManager;
+    private GameEnvironment gameEnvironment;
 
-    private final BlockAdapter adapter = new BlockAdapter();
+    private GridLayoutManager layoutManager;
+    private final BlockAdapter adapter = new BlockAdapter(true);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        gameEnvironment = new GameEnvironment(this);
 
         setupActionBar();
 
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         setUpRestartButton();
         setupRadioGroup();
 
+        pb.setOnLongClickListener(view -> easterEgg());
         gameEnvironment.startNew(this::resetProgress);
     }
 
@@ -138,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
         parent.setBackgroundResource(R.color.white);
         layoutManager.setSpanCount(gameEnvironment.getSpanCount());
         pb.setProgress(0);
+        pb.setMax(gameEnvironment.getBlocksCount());
         adapter.updateItems(gameEnvironment.getBlocks());
     }
 
@@ -153,5 +157,35 @@ public class MainActivity extends AppCompatActivity {
 
         dialogView.findViewById(R.id.btn_go_back_to_game).setOnClickListener(view -> alertDialog.dismiss());
         alertDialog.show();
+    }
+
+    private boolean easterEgg() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_easter_egg, viewGroup, false);
+        builder.setView(dialogView);
+
+        builder.setPositiveButton(android.R.string.ok, null);
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.setCancelable(true);
+        alertDialog.setTitle(R.string.blocks_sequence);
+
+
+        RecyclerView rvEasterEgg = dialogView.findViewById(R.id.rv_easter_egg);
+        rvEasterEgg.setHasFixedSize(true);
+
+        BlockAdapter adapter = new BlockAdapter(gameEnvironment.getBlocks(), false);
+        ItemOffsetDecoration itemOffsetDecoration = new ItemOffsetDecoration(this, R.dimen.item_margin);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, gameEnvironment.getSpanCount());
+
+        rvEasterEgg.addItemDecoration(itemOffsetDecoration);
+        rvEasterEgg.setLayoutManager(layoutManager);
+        rvEasterEgg.setAdapter(adapter);
+        rvEasterEgg.setEnabled(false);
+
+        alertDialog.show();
+
+        return false;
     }
 }

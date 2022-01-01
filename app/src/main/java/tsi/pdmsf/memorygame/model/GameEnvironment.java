@@ -1,12 +1,14 @@
 package tsi.pdmsf.memorygame.model;
 
+import android.content.Context;
+import android.content.res.TypedArray;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
+import tsi.pdmsf.memorygame.ColorSchemePreferencePersistence;
 import tsi.pdmsf.memorygame.R;
 
 public class GameEnvironment {
@@ -15,28 +17,36 @@ public class GameEnvironment {
     private GameLevel level = GameLevel.EASY;
     private Block lastCorrectBlock = null;
     private final ArrayList<Integer> values = new ArrayList<>();
+    private final ArrayList<Integer> colors = new ArrayList<>();
+    ColorSchemePreferencePersistence colorSchemePersistence;
+    private final Context context;
 
-    private final List<Integer> colors = Arrays.asList(
-            R.color.green_900,
-            R.color.materialBlue,
-            R.color.materialRed,
-            R.color.deep_purple,
-            R.color.deep_pink,
-            R.color.deep_pink_1,
-            R.color.deep_orange,
-            R.color.deep_orange_1,
-            R.color.gold,
-            R.color.green_300
-    );
-
-    public GameEnvironment() {
+    public GameEnvironment(@NotNull Context context) {
+        this.context = context;
         populateValuesList();
+        colorSchemePersistence = new ColorSchemePreferencePersistence(context);
+    }
+
+    private void populateBlockColorList() {
+        TypedArray colorsArray;
+        colors.clear();
+
+        if (colorSchemePersistence.getCurrentColorScheme().equals(context.getString(R.string.default_color_scheme_value))) {
+            colorsArray = context.getResources().obtainTypedArray(R.array.default_blocks_color);
+        } else
+            colorsArray = context.getResources().obtainTypedArray(R.array.accessible_blocks_color);
+
+        for (int i = 0; i < colorsArray.length(); i++) {
+            colors.add(colorsArray.getResourceId(i, 0));
+        }
+
+        colorsArray.recycle();
     }
 
     private void populateValuesList() {
         values.clear();
 
-        for (int i = 1; i <= level.getBlocks(); i++) {
+        for (int i = 1; i <= level.getBlocksCount(); i++) {
             values.add(i);
         }
     }
@@ -57,7 +67,7 @@ public class GameEnvironment {
     }
 
     public boolean won() {
-        return lastCorrectBlock != null && lastCorrectBlock.getOrder() == level.getBlocks();
+        return lastCorrectBlock != null && lastCorrectBlock.getOrder() == level.getBlocksCount();
     }
 
     public void changeLevel(GameLevel level, @NotNull OnStartCallback startCallback) {
@@ -73,6 +83,7 @@ public class GameEnvironment {
         lastCorrectBlock = null;
         blocks = new ArrayList<>();
 
+        populateBlockColorList();
         populateValuesList();
 
         Collections.shuffle(values);
@@ -80,7 +91,7 @@ public class GameEnvironment {
 
         blocks.clear();
 
-        for (int i = 0; i < level.getBlocks(); i++) {
+        for (int i = 0; i < level.getBlocksCount(); i++) {
             blocks.add(new Block(i + 1, values.get(i), colors.get(i)));
         }
 
@@ -97,6 +108,10 @@ public class GameEnvironment {
 
     public ArrayList<Block> getBlocks() {
         return blocks;
+    }
+
+    public int getBlocksCount() {
+        return level.getBlocksCount();
     }
 
     public interface GuessCallback {

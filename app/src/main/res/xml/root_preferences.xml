@@ -5,12 +5,12 @@
         <ListPreference
             android:entries="@array/theme_entries"
             android:entryValues="@array/theme_entry_values"
-            app:defaultValue="@string/default_theme_value"
+            app:defaultValue="@string/default_color_scheme_value"
             app:icon="@drawable/ic_palette_outline"
-            app:key="@string/key_change_theme"
+            app:key="@string/key_change_color_scheme"
             app:negativeButtonText=""
-            app:summary="@string/accessible_theme_entry"
-            app:title="@string/pref_title_change_app_theme"
+            app:summary="@string/accessible_color_scheme_entry"
+            app:title="@string/pref_title_change_color_scheme"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
