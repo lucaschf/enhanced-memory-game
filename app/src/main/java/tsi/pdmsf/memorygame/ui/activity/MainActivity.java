@@ -137,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void resetProgress() {
-        pb.setMax(gameEnvironment.getSpanCount());
         parent.setBackgroundResource(R.color.white);
         layoutManager.setSpanCount(gameEnvironment.getSpanCount());
         pb.setProgress(0);
@@ -170,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.setCancelable(true);
         alertDialog.setTitle(R.string.blocks_sequence);
-
 
         RecyclerView rvEasterEgg = dialogView.findViewById(R.id.rv_easter_egg);
         rvEasterEgg.setHasFixedSize(true);
