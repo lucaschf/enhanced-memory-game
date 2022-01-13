@@ -75,5 +75,5 @@ public class Scoreboard {
         }
         throw new IllegalArgumentException("Id Iválido : " + cod);
     }
-    
+
 }//class Placar
