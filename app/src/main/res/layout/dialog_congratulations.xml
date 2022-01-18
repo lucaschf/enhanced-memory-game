@@ -18,8 +18,8 @@
         android:layout_width="196dp"
         android:layout_height="196dp"
         android:layout_margin="36dp"
-        app:srcCompat="@drawable/img_trophy"
-        android:contentDescription="@string/trophy" />
+        android:contentDescription="@string/trophy"
+        app:srcCompat="@drawable/img_trophy" />
 
     <TextView
         android:id="@+id/tv_congratulations"

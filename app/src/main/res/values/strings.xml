@@ -27,6 +27,14 @@
     <string name="hard">Hard</string>
     <string name="blocks_sequence">Blocks sequence</string>
 
+    <!-- About -->
+    <string name="explain_button">This is a button, several of these will appear and you will have to press them in the correct order to win the game!</string>
+    <string name="explain_levels">At the top we have 3 buttons with the available levels, the number of buttons changes according to the level</string>
+    <string name="explain_progressBar">This bar indicates your progress in the current game</string>
+    <string name="explain_conf">In the upper right corner we have the menu for accessibility configuration, access to our website and repository</string>
+    <string name="explain_error_button">Remembering that every wrong click on the button the sequence resets and all buttons reappear on the screen</string>
+
+
     <!-- Preference -->
     <string name="general_header">General</string>
     <string name="pref_title_about">About</string>
@@ -48,5 +56,5 @@
 
     <!-- url -->
     <string name="repo_url" translatable="false">https://github.com/lucaschf/enhanced-memory-game</string>
-    <string name="page_url" translatable="false">https://github.com/lucaschf/enhanced-memory-game</string>
+    <string name="page_url" translatable="false">https://lucaschf.github.io/enhanced-memory-game/</string>
 </resources>
