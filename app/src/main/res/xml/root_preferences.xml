@@ -16,6 +16,7 @@
 
     <PreferenceCategory>
         <Preference
+            android:icon="@drawable/ic_about"
             app:key="@string/pref_key_about"
             app:selectable="true"
             app:title="@string/pref_title_about" />
