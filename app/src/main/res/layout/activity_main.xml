@@ -104,12 +104,12 @@
         android:layout_marginStart="@dimen/m_lg"
         android:layout_marginLeft="@dimen/m_lg"
         android:layout_marginEnd="@dimen/m_lg"
-        app:trackThickness="8dp"
         android:layout_marginRight="@dimen/m_lg"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_progress">
+        app:layout_constraintStart_toEndOf="@+id/tv_progress"
+        app:trackThickness="8dp">
 
     </com.google.android.material.progressindicator.LinearProgressIndicator>
 
@@ -137,5 +137,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_restart" />
+
+    <Button
+        android:id="@+id/btn_highscore"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="244dp"
+        android:padding="@dimen/pd_lg"
+        android:text="@string/highscore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

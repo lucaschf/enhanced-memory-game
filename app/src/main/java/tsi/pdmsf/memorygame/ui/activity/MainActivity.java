@@ -25,12 +25,14 @@ import tsi.pdmsf.memorygame.model.GameEnvironment.GuessCallback;
 import tsi.pdmsf.memorygame.model.GameLevel;
 import tsi.pdmsf.memorygame.ui.recyclerview.BlockAdapter;
 import tsi.pdmsf.memorygame.ui.recyclerview.ItemOffsetDecoration;
+import tsi.pdmsf.memorygame.ui.activity.HighscoreActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private ConstraintLayout parent;
     private ProgressBar pb;
     private RecyclerView recyclerView;
+    private Button btnHighscore;
 
     private GameEnvironment gameEnvironment;
 
@@ -53,6 +55,16 @@ public class MainActivity extends AppCompatActivity {
 
         pb.setOnLongClickListener(view -> easterEgg());
         gameEnvironment.startNew(this::resetProgress);
+    }
+
+    private void handleHighscore() {
+        btnHighscore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), HighscoreActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setupActionBar() {
@@ -82,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
         parent = findViewById(R.id.parent);
         pb = findViewById(R.id.pb);
         recyclerView = findViewById(R.id.rv_blocks);
+        btnHighscore = findViewById(R.id.btn_highscore);
+        handleHighscore();
     }
 
     private void setupRecyclerView() {

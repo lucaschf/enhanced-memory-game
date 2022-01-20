@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Memory Game</string>
     <string name="restart">restart</string>
+    <string name="highscore">Highscore</string>
+    <string name="btn_return">Return</string>
+
     <string name="progress">Progress</string>
     <string name="_1">1</string>
     <string name="_2">2</string>
