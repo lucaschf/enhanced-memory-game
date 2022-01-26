@@ -14,6 +14,9 @@
     <string name="you_have_a_good_memory">You have a good memory!</string>
     <string name="refresh">Refresh</string>
     <string name="open_in_browser">Open in browser</string>
+    <string name="input_your_name_here">Input your name here</string>
+    <string name="submit_score">Submit score</string>
+    <string name="score">put score here</string>
 
     <string name="loading">Loading…</string>
     <string name="title_activity_settings">Settings</string>
@@ -57,4 +60,5 @@
     <!-- url -->
     <string name="repo_url" translatable="false">https://github.com/lucaschf/enhanced-memory-game</string>
     <string name="page_url" translatable="false">https://lucaschf.github.io/enhanced-memory-game/</string>
+    <string name="put_your_name_here">Put your name here!</string>
 </resources>
