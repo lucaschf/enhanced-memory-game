@@ -30,6 +30,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.activity.MainActivity" />
         </activity>
+         <activity
+            android:name=".ui.activity.HighscoreActivity"
+            android:label="Highscore"
+            android:launchMode="singleTop"
+            android:parentActivityName=".ui.activity.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activity.MainActivity" />
+        </activity>
         <activity
             android:name=".ui.activity.WebViewActivity"
             android:launchMode="singleTop"

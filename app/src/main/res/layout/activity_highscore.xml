@@ -5,7 +5,7 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.MainActivity">
+    tools:context=".ui.activity.HighscoreActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -71,65 +71,15 @@
             android:textColor="@drawable/r_btn_text_color_selector" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/btn_restart"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_large"
-        android:padding="@dimen/pd_lg"
-        android:text="@string/restart"
-        app:layout_constraintEnd_toEndOf="@+id/gp_game_level"
-        app:layout_constraintStart_toStartOf="@+id/gp_game_level"
-        app:layout_constraintTop_toBottomOf="@+id/gp_game_level" />
-
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/pb"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/m_lg"
-        android:layout_marginLeft="@dimen/m_lg"
-        android:layout_marginEnd="@dimen/m_lg"
-        android:layout_marginRight="@dimen/m_lg"
-        android:layout_marginBottom="20dp"
+    <ListView
+        android:id="@+id/lista"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_progress"
-        app:trackThickness="8dp">
-    </com.google.android.material.progressindicator.LinearProgressIndicator>
+        app:layout_constraintTop_toBottomOf="@+id/gp_game_level"
+        tools:layout_editor_absoluteX="0dp">
 
-    <TextView
-        android:id="@+id/tv_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/m_lg"
-        android:layout_marginLeft="@dimen/m_lg"
-        android:layout_marginBottom="@dimen/m_lg"
-        android:text="@string/progress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_blocks"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/m_lg"
-        android:foregroundGravity="center"
-        android:scrollbars="vertical"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/pb"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_restart" />
-
-    <Button
-        android:id="@+id/btn_highscore"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="244dp"
-        android:padding="@dimen/pd_lg"
-        android:text="@string/highscore"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
