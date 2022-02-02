@@ -14,6 +14,18 @@
     <color name="deep_orange_1">#FF5722</color>
 
 
+    <!--accessible colors-->
+    <color name="ruby_red">#9B2226</color>
+    <color name="indigo_dye">#134670</color>
+    <color name="celadon_blue">#256F95</color>
+    <color name="opal">#A0C2BF</color>
+    <color name="medium_champagne">#E5DCAD</color>
+    <color name="gold_matalic">#DDB016</color>
+    <color name="dark_goldenrod">#B68010</color>
+    <color name="golden_brown">#A25E0B</color>
+    <color name="dirt">#8F7244</color>
+
+
     <!--Other-->
     <color name="green_900">#006800</color>
     <color name="green_800">#008700</color>

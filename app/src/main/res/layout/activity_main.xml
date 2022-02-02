@@ -82,21 +82,6 @@
         app:layout_constraintStart_toStartOf="@+id/gp_game_level"
         app:layout_constraintTop_toBottomOf="@+id/gp_game_level" />
 
-    <!--    <ProgressBar-->
-    <!--        android:id="@+id/pb"-->
-    <!--        style="?android:attr/progressBarStyleHorizontal"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="@dimen/m_lg"-->
-    <!--        android:layout_marginLeft="@dimen/m_lg"-->
-    <!--        android:layout_marginEnd="@dimen/m_lg"-->
-    <!--        android:layout_marginRight="@dimen/m_lg"-->
-    <!--        android:layout_marginBottom="@dimen/m_lg"-->
-    <!--        android:max="6"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toEndOf="@+id/tv_progress" />-->
-
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/pb"
         android:layout_width="0dp"
@@ -110,7 +95,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_progress"
         app:trackThickness="8dp">
-
     </com.google.android.material.progressindicator.LinearProgressIndicator>
 
     <TextView

@@ -1,45 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/congratulations_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/m_lg"
-    android:gravity="center|center_vertical"
-    android:orientation="vertical"
-    app:layout_constraintBottom_toBottomOf="@+id/h_guideline"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
     tools:visibility="visible">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="196dp"
-        android:layout_height="196dp"
-        android:layout_margin="36dp"
-        app:srcCompat="@drawable/img_trophy"
-        android:contentDescription="@string/trophy" />
+        android:layout_width="177dp"
+        android:layout_height="132dp"
+        android:layout_marginTop="60dp"
+        android:contentDescription="@string/trophy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_trophy" />
 
     <TextView
         android:id="@+id/tv_congratulations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="243dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="212dp"
         android:text="@string/congratulations"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_congratulations_desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/item_margin"
-        android:text="@string/you_have_a_good_memory" />
+        android:layout_width="215dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="264dp"
+        android:text="@string/you_have_a_good_memory"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_go_back_to_game"
-        android:layout_width="match_parent"
-        android:layout_margin="@dimen/extra_large"
-        android:layout_height="wrap_content"
-        android:text="@string/play_again" />
+        android:layout_width="94dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="532dp"
+        android:text="@string/play_again"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.264"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+    <Button
+        android:id="@+id/buttonScore"
+        android:layout_width="92dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="532dp"
+        android:text="@string/submit_score"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.711"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="296dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="348dp"
+        android:text="234"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/nameScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="412dp"
+        android:ems="10"
+        android:hint="@string/put_your_name_here"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColorHint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

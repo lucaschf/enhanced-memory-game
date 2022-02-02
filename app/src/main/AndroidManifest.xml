@@ -30,7 +30,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.activity.MainActivity" />
         </activity>
-        <activity
+         <activity
             android:name=".ui.activity.HighscoreActivity"
             android:label="Highscore"
             android:launchMode="singleTop"
