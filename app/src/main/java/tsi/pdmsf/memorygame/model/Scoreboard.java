@@ -3,6 +3,10 @@ package tsi.pdmsf.memorygame.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.time.Clock;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+
 import tsi.pdmsf.memorygame.model.enums.Difficulty;
 
 @Entity(tableName = "scoreboard")
@@ -14,12 +18,17 @@ public class Scoreboard {
     private String nameUser;
     private Double punctuaction;
     private Difficulty difficulty;
+    private Integer errors;
+    private LocalDateTime time;
 
-    public Scoreboard(Integer id, String nameUser, Double punctuaction, Difficulty difficulty) {
+
+    public Scoreboard(Integer id, String nameUser, Double punctuaction, Difficulty difficulty, Integer errors, LocalDateTime time) {
         this.id = id;
         this.nameUser = nameUser;
         this.punctuaction = punctuaction;
         this.difficulty = difficulty;
+        this.errors = errors;
+        this.time = time;
     }
 
     public Scoreboard() {
@@ -27,6 +36,8 @@ public class Scoreboard {
         this.nameUser = "";
         this.punctuaction = 0.00;
         this.difficulty = Difficulty.EASY;
+        this.errors = 0;
+        this.time = LocalDateTime.now();
     }
 
     public Integer getId() {
@@ -59,6 +70,22 @@ public class Scoreboard {
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
+    }
+
+    public LocalDateTime getTime() {
+        return time;
+    }
+
+    public Integer getErrors() {
+        return errors;
+    }
+
+    public void setErrors(Integer erros) {
+        this.errors = erros;
     }
 
     /**
