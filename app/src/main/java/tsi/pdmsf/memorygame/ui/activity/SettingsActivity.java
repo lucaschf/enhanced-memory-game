@@ -46,6 +46,7 @@ public class SettingsActivity extends AppCompatActivity {
             setupAboutPreference();
             setupWebsitePreference();
             setupRepoPreference();
+            setupHighscorePreference();
         }
 
         private void setupThemePreference() {
@@ -77,6 +78,17 @@ public class SettingsActivity extends AppCompatActivity {
                 });
             }
         }
+
+        private void setupHighscorePreference() {
+            Preference aboutPref = findPreference(getString(R.string.pref_key_score));
+            if (aboutPref != null) {
+                aboutPref.setOnPreferenceClickListener(preference -> {
+                    startActivity(new Intent(getContext(), HighscoreActivity.class));
+                    return false;
+                });
+            }
+        }
+
 
         private void setupWebsitePreference() {
             Preference websitePreference = findPreference(getString(R.string.pref_key_website));

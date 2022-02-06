@@ -1,5 +1,4 @@
 <resources>
-    <string name="highscore">Highscore</string>
     <string name="btn_return">Return</string>
 
     <string name="app_name">Memory Game</string>
@@ -46,9 +45,11 @@
     <string name="pref_title_about">About</string>
     <string name="pref_title_page">Visit our website</string>
     <string name="pref_title_repo">Check our repository</string>
+    <string name="pref_title_score">Highscore</string>
     <string name="pref_key_about">key_about</string>
     <string name="pref_key_website">key_website</string>
     <string name="pref_key_repo">key_repo</string>
+    <string name="pref_key_score">key_score</string>
 
     <!--color scheme -->
     <string name="pref_title_change_color_scheme">Change color scheme</string>

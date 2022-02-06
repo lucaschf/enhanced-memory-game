@@ -57,15 +57,7 @@ public class MainActivity extends AppCompatActivity {
         gameEnvironment.startNew(this::resetProgress);
     }
 
-    private void handleHighscore() {
-        btnHighscore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), HighscoreActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
     private void setupActionBar() {
         ActionBar actionBar = getSupportActionBar();
@@ -94,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
         parent = findViewById(R.id.parent);
         pb = findViewById(R.id.pb);
         recyclerView = findViewById(R.id.rv_blocks);
-        btnHighscore = findViewById(R.id.btn_highscore);
-        handleHighscore();
     }
 
     private void setupRecyclerView() {
