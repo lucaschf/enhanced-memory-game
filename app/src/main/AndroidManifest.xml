@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MemoryGame">
         <activity
+            android:name=".ui.activity.CongratulationsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.AboutActivity"
             android:label="@string/title_activity_about"
             android:screenOrientation="portrait">
@@ -30,7 +33,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.activity.MainActivity" />
         </activity>
-         <activity
+        <activity
             android:name=".ui.activity.HighscoreActivity"
             android:label="Highscore"
             android:launchMode="singleTop"
@@ -56,4 +59,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

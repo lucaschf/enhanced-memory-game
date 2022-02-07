@@ -57,15 +57,7 @@ public class MainActivity extends AppCompatActivity {
         gameEnvironment.startNew(this::resetProgress);
     }
 
-    private void handleHighscore() {
-        btnHighscore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), HighscoreActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
     private void setupActionBar() {
         ActionBar actionBar = getSupportActionBar();
@@ -94,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
         parent = findViewById(R.id.parent);
         pb = findViewById(R.id.pb);
         recyclerView = findViewById(R.id.rv_blocks);
-        btnHighscore = findViewById(R.id.btn_highscore);
-        handleHighscore();
     }
 
     private void setupRecyclerView() {
@@ -159,17 +149,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void congratulations() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        ViewGroup viewGroup = findViewById(android.R.id.content);
-        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_congratulations, viewGroup, false);
-        builder.setView(dialogView);
+        Intent intent = new Intent(this, CongratulationsActivity.class);
+        startActivity(intent);
 
-        AlertDialog alertDialog = builder.create();
-        alertDialog.setCancelable(true);
-        alertDialog.setOnDismissListener(dialogInterface -> findViewById(R.id.btn_restart).performClick());
-
-        dialogView.findViewById(R.id.btn_go_back_to_game).setOnClickListener(view -> alertDialog.dismiss());
-        alertDialog.show();
+//        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//        ViewGroup viewGroup = findViewById(android.R.id.content);
+//        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_congratulations, viewGroup, false);
+//        builder.setView(dialogView);
+//
+//        AlertDialog alertDialog = builder.create();
+//        alertDialog.setCancelable(true);
+//        alertDialog.setOnDismissListener(dialogInterface -> findViewById(R.id.btn_restart).performClick());
+//
+//        dialogView.findViewById(R.id.btn_go_back_to_game).setOnClickListener(view -> alertDialog.dismiss());
+//        alertDialog.show();
     }
 
     private boolean easterEgg() {
