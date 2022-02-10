@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MemoryGame">
         <activity
+            android:name=".ui.activity.CongratulationsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.AboutActivity"
             android:label="@string/title_activity_about"
             android:screenOrientation="portrait">
@@ -23,6 +26,16 @@
         <activity
             android:name=".ui.activity.SettingsActivity"
             android:label="@string/title_activity_settings"
+            android:launchMode="singleTop"
+            android:parentActivityName=".ui.activity.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activity.HighscoreActivity"
+            android:label="Highscore"
             android:launchMode="singleTop"
             android:parentActivityName=".ui.activity.MainActivity"
             android:screenOrientation="portrait">
@@ -46,4 +59,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

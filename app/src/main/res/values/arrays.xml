@@ -23,18 +23,15 @@
     </integer-array>
 
     <integer-array name="accessible_blocks_color">
-        <item>@color/teal_200</item>
-        <item>@color/materialBlue</item>
-        <item>@color/teal_200</item>
-        <item>@color/materialBlue</item>
-        <item>@color/teal_200</item>
-        <item>@color/materialBlue</item>
-        <item>@color/teal_200</item>
-        <item>@color/materialBlue</item>
-        <item>@color/teal_200</item>
-        <item>@color/materialBlue</item>
-        <item>@color/teal_200</item>
-        <item>@color/materialBlue</item>
+        <item>@color/ruby_red</item>
+        <item>@color/indigo_dye</item>
+        <item>@color/celadon_blue</item>
+        <item>@color/opal</item>
+        <item>@color/medium_champagne</item>
+        <item>@color/gold_matalic</item>
+        <item>@color/dark_goldenrod</item>
+        <item>@color/golden_brown</item>
+        <item>@color/dirt</item>
     </integer-array>
 
 </resources>

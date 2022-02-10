@@ -1,4 +1,6 @@
 <resources>
+    <string name="btn_return">Return</string>
+
     <string name="app_name">Memory Game</string>
     <string name="restart">restart</string>
     <string name="progress">Progress</string>
@@ -14,6 +16,9 @@
     <string name="you_have_a_good_memory">You have a good memory!</string>
     <string name="refresh">Refresh</string>
     <string name="open_in_browser">Open in browser</string>
+    <string name="input_your_name_here">Input your name here</string>
+    <string name="submit_score">Submit score</string>
+    <string name="score">put score here</string>
 
     <string name="loading">Loading…</string>
     <string name="title_activity_settings">Settings</string>
@@ -27,14 +32,24 @@
     <string name="hard">Hard</string>
     <string name="blocks_sequence">Blocks sequence</string>
 
+    <!-- About -->
+    <string name="explain_button">This is a button, several of these will appear and you will have to press them in the correct order to win the game!</string>
+    <string name="explain_levels">At the top we have 3 buttons with the available levels, the number of buttons changes according to the level</string>
+    <string name="explain_progressBar">This bar indicates your progress in the current game</string>
+    <string name="explain_conf">In the upper right corner we have the menu for accessibility configuration, access to our website and repository</string>
+    <string name="explain_error_button">Remembering that every wrong click on the button the sequence resets and all buttons reappear on the screen</string>
+
+
     <!-- Preference -->
     <string name="general_header">General</string>
     <string name="pref_title_about">About</string>
     <string name="pref_title_page">Visit our website</string>
     <string name="pref_title_repo">Check our repository</string>
+    <string name="pref_title_score">Highscore</string>
     <string name="pref_key_about">key_about</string>
     <string name="pref_key_website">key_website</string>
     <string name="pref_key_repo">key_repo</string>
+    <string name="pref_key_score">key_score</string>
 
     <!--color scheme -->
     <string name="pref_title_change_color_scheme">Change color scheme</string>
@@ -48,5 +63,6 @@
 
     <!-- url -->
     <string name="repo_url" translatable="false">https://github.com/lucaschf/enhanced-memory-game</string>
-    <string name="page_url" translatable="false">https://github.com/lucaschf/enhanced-memory-game</string>
+    <string name="page_url" translatable="false">https://lucaschf.github.io/enhanced-memory-game/</string>
+    <string name="put_your_name_here">Put your name here!</string>
 </resources>
