@@ -1,7 +1,5 @@
 package tsi.pdmsf.memorygame.repository;
 
-import android.icu.text.Replaceable;
-
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -31,6 +29,6 @@ public interface ScoreboardRepository {
     @Query("DELETE FROM scoreboard")
     void deleteAll();
 
-    @Query("SELECT * FROM scoreboard ORDER BY punctuaction DESC, errors ASC, nameUser")
+    @Query("SELECT * FROM scoreboard ORDER BY punctuation DESC, errors ASC, nameUser")
     List<Scoreboard> findByLevel();
 }//interface ScoreboardRepository

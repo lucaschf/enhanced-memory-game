@@ -3,11 +3,7 @@ package tsi.pdmsf.memorygame.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.time.Clock;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-
-import tsi.pdmsf.memorygame.model.enums.Difficulty;
+import tsi.pdmsf.memorygame.model.enums.GameLevel;
 
 @Entity(tableName = "scoreboard")
 public class Scoreboard {
@@ -16,28 +12,18 @@ public class Scoreboard {
     private Integer id;
 
     private String nameUser;
-    private Double punctuaction;
-    private Difficulty difficulty;
+    private Double punctuation;
+    private GameLevel difficulty;
     private Integer errors;
-    private LocalDateTime time;
+    private int time;
 
-
-    public Scoreboard(Integer id, String nameUser, Double punctuaction, Difficulty difficulty, Integer errors, LocalDateTime time) {
-        this.id = id;
-        this.nameUser = nameUser;
-        this.punctuaction = punctuaction;
-        this.difficulty = difficulty;
-        this.errors = errors;
-        this.time = time;
-    }
 
     public Scoreboard() {
-        this.id = 0;
         this.nameUser = "";
-        this.punctuaction = 0.00;
-        this.difficulty = Difficulty.EASY;
+        this.punctuation = 0.00;
+        this.difficulty = GameLevel.EASY;
         this.errors = 0;
-        this.time = LocalDateTime.now();
+        this.time = 0;
     }
 
     public Integer getId() {
@@ -56,51 +42,36 @@ public class Scoreboard {
         this.nameUser = nameUser;
     }
 
-    public Double getPunctuaction() {
-        return punctuaction;
+    public Double getPunctuation() {
+        return punctuation;
     }
 
-    public void setPunctuaction(Double punctuaction) {
-        this.punctuaction = punctuaction;
+    public void setPunctuation(Double punctuation) {
+        this.punctuation = punctuation;
     }
 
-    public Difficulty getDifficulty() {
+    public GameLevel getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(Difficulty difficulty) {
+    public void setDifficulty(GameLevel difficulty) {
         this.difficulty = difficulty;
     }
 
-    public void setTime(LocalDateTime time) {
-        this.time = time;
+    public int getTime() {
+        return time;
     }
 
-    public LocalDateTime getTime() {
-        return time;
+    public void setTime(int time) {
+        this.time = time;
     }
 
     public Integer getErrors() {
         return errors;
     }
 
-    public void setErrors(Integer erros) {
-        this.errors = erros;
+    public void setErrors(Integer errors) {
+        this.errors = errors;
     }
 
-    /**
-     * Necessário para o CRUD.
-     */
-    public static Difficulty toEnum(Integer cod){
-        if(cod == null)
-            return null;
-
-        for(Difficulty tip : Difficulty.values()){
-            if(cod.equals(tip.getCode())){
-                return tip;
-            }
-        }
-        throw new IllegalArgumentException("Id Iválido : " + cod);
-    }
-
-}//class Placar
+}
