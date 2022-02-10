@@ -9,8 +9,8 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
-import tsi.pdmsf.memorygame.R;
 import tsi.pdmsf.memorygame.ColorSchemePreferencePersistence;
+import tsi.pdmsf.memorygame.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -54,19 +54,21 @@ public class SettingsActivity extends AppCompatActivity {
             ListPreference colorSchemePreference = findPreference(getString(R.string.key_change_color_scheme));
 
             try {
-                colorSchemePreference.setDefaultValue(colorSchemePersistence.getDefaultColorScheme());
+                if (colorSchemePreference != null) {
+                    colorSchemePreference.setDefaultValue(colorSchemePersistence.getDefaultColorScheme());
+
+                    colorSchemePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+                        String oldValue = colorSchemePersistence.getCurrentColorScheme();
+
+                        if (oldValue != newValue) {
+                            colorSchemePersistence.saveColorScheme(newValue.toString());
+                        }
+
+                        return oldValue != newValue;
+                    });
+                }
             } catch (Exception ignored) {
             }
-
-            colorSchemePreference.setOnPreferenceChangeListener((preference, newValue) -> {
-                String oldValue = colorSchemePersistence.getCurrentColorScheme();
-
-                if (oldValue != newValue) {
-                    colorSchemePersistence.saveColorScheme(newValue.toString());
-                }
-
-                return oldValue != newValue;
-            });
         }
 
         private void setupAboutPreference() {
@@ -83,7 +85,7 @@ public class SettingsActivity extends AppCompatActivity {
             Preference aboutPref = findPreference(getString(R.string.pref_key_score));
             if (aboutPref != null) {
                 aboutPref.setOnPreferenceClickListener(preference -> {
-                    startActivity(new Intent(getContext(), HighscoreActivity.class));
+                    startActivity(new Intent(getContext(), HighScoreActivity.class));
                     return false;
                 });
             }
@@ -94,7 +96,9 @@ public class SettingsActivity extends AppCompatActivity {
             Preference websitePreference = findPreference(getString(R.string.pref_key_website));
             if (websitePreference != null) {
                 websitePreference.setOnPreferenceClickListener(preference -> {
-                    WebViewActivity.navigate(getActivity(), getString(R.string.page_url));
+                    if (getActivity() != null) {
+                        WebViewActivity.navigate(getActivity(), getString(R.string.page_url));
+                    }
                     return true;
                 });
             }
@@ -104,7 +108,9 @@ public class SettingsActivity extends AppCompatActivity {
             Preference repoPreference = findPreference(getString(R.string.pref_key_repo));
             if (repoPreference != null) {
                 repoPreference.setOnPreferenceClickListener(preference -> {
-                    WebViewActivity.navigate(getActivity(), getString(R.string.repo_url));
+                    if (getActivity() != null) {
+                        WebViewActivity.navigate(getActivity(), getString(R.string.repo_url));
+                    }
                     return true;
                 });
             }

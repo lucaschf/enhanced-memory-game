@@ -45,7 +45,7 @@
     <string name="pref_title_about">About</string>
     <string name="pref_title_page">Visit our website</string>
     <string name="pref_title_repo">Check our repository</string>
-    <string name="pref_title_score">Highscore</string>
+    <string name="pref_title_score">HighScore</string>
     <string name="pref_key_about">key_about</string>
     <string name="pref_key_website">key_website</string>
     <string name="pref_key_repo">key_repo</string>
@@ -64,5 +64,7 @@
     <!-- url -->
     <string name="repo_url" translatable="false">https://github.com/lucaschf/enhanced-memory-game</string>
     <string name="page_url" translatable="false">https://lucaschf.github.io/enhanced-memory-game/</string>
-    <string name="put_your_name_here">Put your name here!</string>
+    <string name="put_your_name_here">Insert your name here!</string>
+    <string name="your_score">"Your score: "</string>
+    <string name="score_info">If no name is entered, the score will be saved as the score of the player named \'Player\'..</string>
 </resources>

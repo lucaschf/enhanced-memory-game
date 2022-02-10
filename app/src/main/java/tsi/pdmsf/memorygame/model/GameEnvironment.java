@@ -2,7 +2,6 @@ package tsi.pdmsf.memorygame.model;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.util.Log;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -11,7 +10,7 @@ import java.util.Collections;
 
 import tsi.pdmsf.memorygame.ColorSchemePreferencePersistence;
 import tsi.pdmsf.memorygame.R;
-import tsi.pdmsf.memorygame.ui.activity.PointControl;
+import tsi.pdmsf.memorygame.model.enums.GameLevel;
 
 public class GameEnvironment {
 
@@ -20,7 +19,7 @@ public class GameEnvironment {
     private Block lastCorrectBlock = null;
     private final ArrayList<Integer> values = new ArrayList<>();
     private final ArrayList<Integer> colors = new ArrayList<>();
-    ColorSchemePreferencePersistence colorSchemePersistence;
+    private final ColorSchemePreferencePersistence colorSchemePersistence;
     private final Context context;
     private PointControl pc;
 
@@ -58,8 +57,8 @@ public class GameEnvironment {
     public void takeGuess(@NotNull Block block, @NotNull GuessCallback callback) {
         if (isTheCorrectBlock(block)) {
             lastCorrectBlock = block;
-            if(won()){
-                pc.setTimeFinish((int)System.currentTimeMillis());
+            if (won()) {
+                pc.setTimeFinish((int) System.currentTimeMillis());
             }
             callback.onCorrectGuess();
         } else {
@@ -99,13 +98,13 @@ public class GameEnvironment {
 
         blocks.clear();
         pc = new PointControl();
-        Log.d("DEBUG", "NOVO");
-        pc.setTimeStart((int)System.currentTimeMillis());
-        Log.d("DEBUG", "setouinicio");
+        pc.setTimeStart((int) System.currentTimeMillis());
+
         for (int i = 0; i < level.getBlocksCount(); i++) {
             blocks.add(new Block(i + 1, values.get(i), colors.get(i)));
         }
-        pc.setTimeStart((int)System.currentTimeMillis());
+
+        pc.setTimeStart((int) System.currentTimeMillis());
         onStartCallback.execute();
     }
 
@@ -124,14 +123,18 @@ public class GameEnvironment {
         return level.getBlocksCount();
     }
 
+    public GameLevel getLevel() {
+        return level;
+    }
+
+    public PointControl getPointControl() {
+        return this.pc;
+    }
+
     public interface GuessCallback {
         void onCorrectGuess();
 
         void onIncorrectGuess();
-    }
-
-    public int pointFase(){
-        return pc.calcularPontos();
     }
 
     public interface OnStartCallback {
