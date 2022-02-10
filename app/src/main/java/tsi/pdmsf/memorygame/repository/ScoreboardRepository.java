@@ -33,7 +33,4 @@ public interface ScoreboardRepository {
 
     @Query("SELECT * FROM scoreboard ORDER BY punctuaction DESC, errors ASC, nameUser")
     List<Scoreboard> findByLevel();
-
-
-
 }//interface ScoreboardRepository
