@@ -28,7 +28,7 @@ public interface ScoreboardRepository {
     @Query("SELECT * FROM scoreboard")
     List<Scoreboard> findAll();
 
-    @Query("DROP TABLE scoreboard")
+    @Query("DELETE FROM scoreboard")
     void deleteAll();
 
     @Query("SELECT * FROM scoreboard ORDER BY punctuaction DESC, errors ASC, nameUser")
