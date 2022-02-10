@@ -12,34 +12,40 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import tsi.pdmsf.memorygame.R;
 import tsi.pdmsf.memorygame.model.Scoreboard;
+import tsi.pdmsf.memorygame.model.enums.GameLevel;
 import tsi.pdmsf.memorygame.repository.AppDatabase;
+import tsi.pdmsf.memorygame.repository.ScoreboardRepository;
 
 public class HighScoreActivity extends AppCompatActivity {
+    private AppDatabase repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        repository = AppDatabase.getInstance(this);
         setContentView(R.layout.activity_highscore);
 
         setupRadioGroup();
-        loadHighscore(0);
+        loadHighscore(GameLevel.EASY);
     }
 
     private void setupRadioGroup() {
         RadioGroup gpGameLevel = findViewById(R.id.gp_game_level);
         gpGameLevel.setOnCheckedChangeListener((radioGroup, checkedId) -> {
-            int newLevel;
+            GameLevel newLevel;
 
             if (checkedId == R.id.rd_easy) {
-                newLevel = 0;
+                newLevel = GameLevel.EASY;
             } else if (checkedId == R.id.rd_medium) {
-                newLevel = 1;
+                newLevel = GameLevel.MEDIUM;
             } else {
-                newLevel = 2;
+                newLevel = GameLevel.HARD;
             }
 
             loadHighscore(newLevel);
@@ -51,17 +57,20 @@ public class HighScoreActivity extends AppCompatActivity {
     }
 
     @SuppressLint("DefaultLocale")
-    private void loadHighscore(int level) {
+    private void loadHighscore(GameLevel level) {
         ListView listView = findViewById(R.id.lista);
 
-        List<Scoreboard> scores = AppDatabase.getInstance(this).SRDao().findAll();
+        List<Scoreboard> scores = repository.SRDao().findAllByDifficulty(level);
         String[] array = new String[scores.size()];
 
         for (int i = 0; i < scores.size(); i++) {
-            array[i] = String.format("%dº - %s - Score: %s ",
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss");
+            array[i] = String.format("%dº - %s - Score: %s - %s",
                     i + 1,
                     scores.get(i).getNameUser(),
-                    scores.get(i).getPunctuation());
+                    scores.get(i).getPunctuation(),
+                    formatter.format(scores.get(i).getDateTime()));
+
         }
 
         if (array.length == 0) {
