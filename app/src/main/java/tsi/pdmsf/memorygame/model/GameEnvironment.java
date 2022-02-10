@@ -2,6 +2,7 @@ package tsi.pdmsf.memorygame.model;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.util.Log;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -10,6 +11,7 @@ import java.util.Collections;
 
 import tsi.pdmsf.memorygame.ColorSchemePreferencePersistence;
 import tsi.pdmsf.memorygame.R;
+import tsi.pdmsf.memorygame.ui.activity.PointControl;
 
 public class GameEnvironment {
 
@@ -20,11 +22,13 @@ public class GameEnvironment {
     private final ArrayList<Integer> colors = new ArrayList<>();
     ColorSchemePreferencePersistence colorSchemePersistence;
     private final Context context;
+    private PointControl pc;
 
     public GameEnvironment(@NotNull Context context) {
         this.context = context;
         populateValuesList();
         colorSchemePersistence = new ColorSchemePreferencePersistence(context);
+        pc = new PointControl();
     }
 
     private void populateBlockColorList() {
@@ -54,8 +58,12 @@ public class GameEnvironment {
     public void takeGuess(@NotNull Block block, @NotNull GuessCallback callback) {
         if (isTheCorrectBlock(block)) {
             lastCorrectBlock = block;
+            if(won()){
+                pc.setTimeFinish((int)System.currentTimeMillis());
+            }
             callback.onCorrectGuess();
         } else {
+            pc.addErrors();
             restart();
             callback.onIncorrectGuess();
         }
@@ -90,17 +98,19 @@ public class GameEnvironment {
         Collections.shuffle(colors);
 
         blocks.clear();
-
+        pc = new PointControl();
+        Log.d("DEBUG", "NOVO");
+        pc.setTimeStart((int)System.currentTimeMillis());
+        Log.d("DEBUG", "setouinicio");
         for (int i = 0; i < level.getBlocksCount(); i++) {
             blocks.add(new Block(i + 1, values.get(i), colors.get(i)));
         }
-
+        pc.setTimeStart((int)System.currentTimeMillis());
         onStartCallback.execute();
     }
 
     public void restart() {
         lastCorrectBlock = null;
-
         for (Block b : blocks) {
             b.setVisible(true);
         }
@@ -118,6 +128,10 @@ public class GameEnvironment {
         void onCorrectGuess();
 
         void onIncorrectGuess();
+    }
+
+    public int pointFase(){
+        return pc.calcularPontos();
     }
 
     public interface OnStartCallback {
