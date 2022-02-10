@@ -3,6 +3,8 @@ package tsi.pdmsf.memorygame.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.time.LocalDateTime;
+
 import tsi.pdmsf.memorygame.model.enums.GameLevel;
 
 @Entity(tableName = "scoreboard")
@@ -16,6 +18,7 @@ public class Scoreboard {
     private GameLevel difficulty;
     private Integer errors;
     private int time;
+    private LocalDateTime dateTime;
 
 
     public Scoreboard() {
@@ -24,6 +27,7 @@ public class Scoreboard {
         this.difficulty = GameLevel.EASY;
         this.errors = 0;
         this.time = 0;
+        this.dateTime = LocalDateTime.now();
     }
 
     public Integer getId() {
@@ -72,6 +76,14 @@ public class Scoreboard {
 
     public void setErrors(Integer errors) {
         this.errors = errors;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
 }
