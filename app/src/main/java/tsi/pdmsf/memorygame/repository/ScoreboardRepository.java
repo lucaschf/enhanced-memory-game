@@ -10,6 +10,7 @@ import androidx.room.Update;
 import java.util.List;
 
 import tsi.pdmsf.memorygame.model.Scoreboard;
+import tsi.pdmsf.memorygame.model.enums.GameLevel;
 
 @Dao
 public interface ScoreboardRepository {
@@ -31,4 +32,8 @@ public interface ScoreboardRepository {
 
     @Query("SELECT * FROM scoreboard ORDER BY punctuation DESC, errors ASC, nameUser")
     List<Scoreboard> findByLevel();
+
+    @Query("SELECT * FROM scoreboard WHERE difficulty = :difficultyFilter ORDER BY punctuation DESC, errors ASC, nameUser")
+    List<Scoreboard> findAllByDifficulty(GameLevel difficultyFilter);
+
 }//interface ScoreboardRepository
