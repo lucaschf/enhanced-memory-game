@@ -5,8 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import tsi.pdmsf.memorygame.model.Score;
+import tsi.pdmsf.memorygame.model.Scoreboard;
+import tsi.pdmsf.memorygame.repository.AppDatabase;
 import tsi.pdmsf.memorygame.repository.ArrayRepository;
 import tsi.pdmsf.memorygame.repository.IRepository;
+import tsi.pdmsf.memorygame.repository.ScoreboardRepository;
 
 public class Store {
     private static List<Score> mockList = new ArrayList<>(Arrays.asList(
@@ -15,4 +18,5 @@ public class Store {
     ));
 
     public static IRepository <Score> repository = new ArrayRepository<>(mockList);
+    
 }
